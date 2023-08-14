@@ -1,0 +1,18 @@
+version: '2.7'
+services:
+  my-app:
+    build: .
+    container_name: my-fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+
+  db:
+    image: postgres:latest
+    environment:
+       POSTGRES_PASSWORD: haslo
+       POSTGRES_USER: uzytk
+       POSTGRES_DB: root
+    ports:
+      - "5432:5432"
